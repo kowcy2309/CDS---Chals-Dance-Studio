@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Student</title>
+    {% load static %}
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/Fevicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/Fevicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/Fevicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/Fevicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/Fevicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#000000">
+    <style>
+        input[type="submit"],
+        input[type="button"] {
+            background-color: #de4646;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete Student</h1>
+    <p>Are you sure you want to delete the student with ID {{ student.id }} and username {{ student.uusername }}?</p>
+    
+    <form  method="post" >
+        {% csrf_token %}
+        <input type="submit" name="confirm_delete" value="Confirm Delete">
+        <input type="button" value="Cancel" onclick="window.location.href = /emt/">
+
+       
+    </form>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chals Dance Studio</title>
+    {% load static %}
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/Fevicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/Fevicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/Fevicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/Fevicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/Fevicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#000000">
+
+             <link href="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+       <link href="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'css/k.css' %}"  rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+  <a href="https://api.whatsapp.com/send?phone=9443444675" target="_blank" class="whatsapp-icon">
+    <i class="fab fa-whatsapp"><img src="{% static 'images/wp1.png' %}" style="width:60px;"></i>
+  </a>
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="" ><img src="{% static 'images\logo.png' %}"></a>
+          <button class="navbar-toggler" type="button" style="background-color: white;" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="{% url 'sp' %}"><b  style="color:red;font-size: large;">Home</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'aboutus' %}"><b style="color:red;font-size: large; ">About Us</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}"><b style="color:red;font-size: large; ">Profile</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'admission' %}"><b style="color:red;font-size: large; ">Admission</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'gallery' %}"><b style="color:rgb(255, 255, 255);font-size: large; ">Gallery</b></a>
+              </li>
+              <li class="nav-item">
+                {% if user.is_authenticated and user_has_access_admin %}
+                   <a class="nav-link" href="{% url 'admin1' %}"><img src="{% static 'images/am.png' %}"></a>
+                {% endif %}
+              </li>
+
+             
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" >
+          <div class="carousel-item active" data-bs-interval="5000">
+            <img src="{% static 'images/mbg4.jpg' %}" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'images/mbg12.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'images/mbg10.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+  
+
+  <div class="container text-center">
+    <h1 class="text-danger" style="color: red;"><strong>GALLERY</strong></h1>
+    <div class="gallery-container">
+        <div class="row">
+          <div class="d-flex flex-wrap align-items-stretch">
+            <div class="col-md-4 ">
+                <img src="{% static 'images/gal10.jpg' %}" class="img-fluid h-80" alt="Image 1">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/gal3.jpg' %}" class="img-fluid h-80" alt="Image 2">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/mbg2.jpg' %}" class="img-fluid h-80" alt="Image 3">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/prof6.jpg' %}" class="img-fluid h-80" alt="Image 4">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/prof11.jpg' %}" class="img-fluid h-80" alt="Image 5">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/prof12.jpg' %}" class="img-fluid h-80" alt="Image 6">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/prof8.jpg' %}" class="img-fluid h-80" alt="Image 7">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/prof10.jpg' %}" class="img-fluid h-100" alt="Image 8">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/prof17.jpg' %}" class="img-fluid h-80" alt="Image 9">
+            </div>
+          </div>
+        </div>
+       
+    </div>
+
+    <div class="gallery-container">
+      <video height="600" width="300" controls>
+          <source src="{% static 'videos/gal2.mp4' %}" type="video/mp4">
+      </video>
+      <video height="600" width="300" controls>
+          <source src="{% static 'videos/gal9.mp4' %}" type="video/mp4">
+      </video>
+      <video height="600" width="300" controls>
+          <source src="{% static 'videos/gal7.mp4' %}" type="video/mp4">
+      </video>
+      <video height="600" width="300" controls>
+          <source src="{% static 'videos/gal6.mp4' %}" type="video/mp4">
+      </video>
+      <video height="600" width="300" controls>
+          <source src="{% static 'videos/gal11.mp4' %}" type="video/mp4">
+      </video>
+      <video height="600" width="300" controls>
+          <source src="{% static 'videos/gal12.mp4' %}" type="video/mp4">
+      </video>
+      
+  </div>
+</div>
+
+
+
+<footer class="bg-dark text-light text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3  style="color: red; "><strong>CDS</strong></h3>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'sp' %}" class="text-light"><b>Home</b></a></li>
+                    <li><a href="{% url 'aboutus' %}" class="text-light"><b>About Us</b></a></li>
+                    <li><a href="{% url 'profile' %}" class="text-light"><b>Profile</b></a></li>
+                    <li><a href="{% url 'gallery' %}" class="text-light"><b>Gallery</b></a></li>
+                    <li><a href="{% url 'admission' %}" class="text-light"><b>Admission</b></a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3  style="color: red;"><strong>ADDRESS</strong></h3>
+                <p class="text-light">
+                  <b>5, PT Rajan Road<br>
+                  Sector 1, KK Nagar<br>
+                  Chennai, 600078<br>
+                  Tamil Nadu, India<br>
+                Contact No: 9042290922</b>
+                </p>
+            </div>
+            <div class="col">
+                <h3  style="color: red; "><strong>Follow Us</strong></h3>
+                <ul class="list-unstyled list-inline">
+                  <li class="list-inline-item">
+                    <a href="https://www.facebook.com/chalsdancestudio?mibextid=2JQ9oc" target="_blank">
+                      <i class="fab fa-facebook-square fa-2x"><img src="{% static 'images/fbk.png' %}"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="https://instagram.com/chalsdancestudio?igshid=MzRlODBiNWFlZA==" target="_blank">
+                      <i class="fab fa-instagram-square fa-2x"><img src="{% static 'images/insta.png' %}"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="https://youtube.com/@CHALSSTUDIO?si=a8MXTO2raAQk9qaO" target="_blank">
+                      <i class="fab fa-youtube-square fa-2x"><img src="{% static 'images/yb.png' %}"></i>
+                    </a>
+                  </li>
+                
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+  
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

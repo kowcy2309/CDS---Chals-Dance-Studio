@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chals Dance Studio</title>
+    {% load static %}
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/Fevicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/Fevicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/Fevicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/Fevicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/Fevicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#000000">
+
+    <link href="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %}" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/k.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("tusername").value;
+            var parentsName = document.getElementById("tparentsname").value;
+            var email = document.getElementById("temail").value;
+            var age = document.getElementById("tage").value;
+            var address = document.getElementById("taddress").value;
+            var pincode = document.getElementById("tpincode").value;
+            var contactNumber = document.getElementById("tcontactnumber").value;
+            var nationality = document.getElementById("tnationality").value;
+            var date = document.getElementById("tdate").value;
+
+            if (name === "" || parentsName === "" || email === "" || age === "" || address === "" || pincode === "" || contactNumber === "" || nationality === "" || date === "") {
+                alert("Please fill in all the required fields.");
+                return false;
+            }
+
+            // Check if the age is a valid number between 1 and 999.
+            if (isNaN(age) || age < 7 || age > 50) {
+                alert("Age must be a number between 7 and 50.");
+                return false;
+            }
+
+            // Check if the contact number is a valid phone number (10 digits).
+            if (!/^\d{10}$/.test(contactNumber)) {
+                alert("Contact number must be a 10-digit number.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+    
+    <a href="https://api.whatsapp.com/send?phone=9443444675" target="_blank" class="whatsapp-icon">
+        <i class="fab fa-whatsapp"><img src="{% static 'images/wp1.png' %}" style="width:60px;"></i>
+      </a>
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" ><img src="{% static 'images\logo.png' %}"></a>
+          <button class="navbar-toggler" type="button" style="background-color: white;" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+     
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+            
+              <li class="nav-item ">
+                <a class="nav-link" aria-current="page" href="{% url 'sp' %}"><b style="color:red;font-size:large">Home</b></a>
+              </li>
+            
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'aboutus' %}"><b style="color:red; font-size: large;">About Us</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}"><b style="color:red;font-size: large;">Profile</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'admission' %}"><b style="color:aliceblue;font-size: large;">Admission</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'gallery' %}"><b style="color:red;font-size: large; ">Gallery</b></a>
+              </li>
+            
+              <li class="nav-item">
+                {% if user.is_authenticated and user_has_access_admin %}
+                   <a class="nav-link" href="{% url 'admin1' %}"><img src="{% static 'images/am.png' %}"></a>
+                {% endif %}
+              </li>
+
+       
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center">Registration Form</h1>
+                <form action="{% url 'insertuser' %}" method="post" onsubmit="return validateForm();">
+
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="username" class="form-label"><b>Name</b></label>
+                        <input type="text" class="form-control border border-dark" id="tusername" name="tusername" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="parentsname" class="form-label"><b>Parent's Name</b></label>
+                        <input type="text" class="form-control border border-dark " id="tparentsname" name="tparentsname" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="temail" class="form-label"><b>Email</b></Email></label>
+                        <input type="email" class="form-control border border-dark" id="temail" name="temail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label"><b>Age</b></label>
+                        <input type="text" class="form-control border border-dark" id="tage" name="tage" oninput="validateAge(this.value)" required>
+                        <span id="age-error" style="color: red;"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label"><b>Address</b></label>
+                        <input type="text" class="form-control border border-dark" id="taddress" name="taddress" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pincode" class="form-label"><b>Pincode</b></label>
+                        <input type="text" class="form-control border border-dark" id="tpincode" name="tpincode" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactNumber" class="form-label"><b>Contact Number</b></label>
+                        <input type="text" class="form-control border border-dark" id="tcontactnumber" name="tcontactnumber" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nationality" class="form-label"><b>Nationality</b></label>
+                        <input type="text" class="form-control border border-dark" id="tnationality" name="tnationality" required>
+                    </div>
+                 
+                    
+                    
+                    <div class="mb-3">
+                        <label for="tdob" class="form-label"><b>Date</b></label>
+                        <input type="date" class="form-control border border-dark" id="tdate" name="tdate" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-danger">Register</button><br><br>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    <footer class="bg-dark text-light text-center mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 style="color: red; "><strong>CDS</strong></h3>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'sp' %}" class="text-light"><b>Home</b></a></li>
+                        <li><a href="{% url 'aboutus' %}" class="text-light"><b>About Us</b></a></li>
+                        <li><a href="{% url 'profile' %}" class="text-light"><b>Profile</b></a></li>
+                        <li><a href="{% url 'gallery' %}" class="text-light"><b>Gallery</b></a></li>
+                        <li><a href="{% url 'admission' %}" class="text-light"><b>Admission</b></a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3 style="color: red;"><strong>ADDRESS</strong></h3>
+                    <p class="text-light">
+                        <b>5, PT Rajan Road<br>
+                        Sector 1, KK Nagar<br>
+                        Chennai, 600078<br>
+                        Tamil Nadu, India<br>
+                      Contact No: 9042290922</b>
+                      </p>
+                </div>
+                <div class="col">
+                    <h3 style="color: red;"><strong>Follow Us</strong></h3>
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                          <a href="https://www.facebook.com/chalsdancestudio?mibextid=2JQ9oc" target="_blank">
+                            <i class="fab fa-facebook-square fa-2x"><img src="{% static 'images/fbk.png' %}"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="https://instagram.com/chalsdancestudio?igshid=MzRlODBiNWFlZA==" target="_blank">
+                            <i class="fab fa-instagram-square fa-2x"><img src="{% static 'images/insta.png' %}"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="https://youtube.com/@CHALSSTUDIO?si=a8MXTO2raAQk9qaO" target="_blank">
+                            <i class="fab fa-youtube-square fa-2x"><img src="{% static 'images/yb.png' %}"></i>
+                          </a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function validateAge(age) {
+            // Check if the age is not empty and is a number
+            if (age.trim() !== '' && !isNaN(age)) {
+                age = parseInt(age);
+                if (age < 1 || age > 999) {
+                    document.getElementById("age-error").innerText = "Age must be between 1 and 999.";
+                } else {
+                    document.getElementById("age-error").innerText = "";
+                }
+            } else {
+                document.getElementById("age-error").innerText = "Please enter a valid age.";
+            }
+        }
+    </script>
+</body>
+</html>

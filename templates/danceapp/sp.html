@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chals Dance Studio</title>
+    {% load static %}
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/Fevicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/Fevicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/Fevicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/Fevicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/Fevicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#000000">
+
+      <link href="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    
+    <link  rel="stylesheet" href="{% static 'css/k.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+ 
+</style>
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" ><img src="{% static 'images\logo.png' %}"></a>
+          <button class="navbar-toggler" type="button" style="background-color: white;" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="card-body  text-center">
+            <h2 class="card-title" style="color: red; font-size: 50px; text-align: center; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); ">CHALS DANCE STUDIO</h2>
+        </div>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+            
+              <li class="nav-item ">
+                <a class="nav-link" aria-current="page" href="{% url 'sp' %}"><b style="color:aliceblue;font-size:large">Home</b></a>
+              </li>
+            
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'aboutus' %}"><b style="color:red; font-size: large;">About Us</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}"><b style="color:red;font-size: large;">Profile</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'admission' %}"><b style="color:red;font-size: large;">Admission</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'gallery' %}"><b style="color:red;font-size: large; ">Gallery</b></a>
+              </li>
+            
+              <li class="nav-item">
+                {% if user.is_authenticated and user_has_access_admin %}
+                   <a class="nav-link" href="{% url 'admin1' %}"><img src="{% static 'images/am.png' %}"></a>
+                {% endif %}
+              </li>
+
+       
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" >
+          <div class="carousel-item active" data-bs-interval="5000">
+            <img src="{% static 'images/mbg4.jpg' %}" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'images/mbg12.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'images/mbg10.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    
+
+
+      <div class="container mt-5">
+        <div class="container-md text-center"> 
+          <h1 style="color: red;font-family:sans-serif;">DANCE INSTILLS AGILITY AND FLEXIBILITY</h1>
+          <p style=" font-size: large;font-weight: 500;">"CHARLES" is an exceptional dance master who has dedicated his life to the art of dance. His passion
+            for dance is evident in every move he makes, and his ability to inspire his students is truly remarkable.
+            He has a unique teaching style that combines discipline with creativity, and he always encourages his
+            students to push themselves beyond their limits.</p>
+          <p style=" font-size: large;font-weight: 500;">At Chals Dance Studio, we're passionate about dance and committed to nurturing the dancer in you. Our
+            studio is a place where you can discover the joy of movement, express yourself through dance, and embark
+            on a journey of self-discovery. Whether you're a beginner taking your first steps or an experienced
+            dancer looking to refine your skills, we have something for everyone.</p>
+        </div>
+      </div>
+      <div class="container-md text-center"> 
+        <div class="row">
+          <div class="col-md-6 mx-auto"> 
+            <br><br><h1 style="color: red;font-family:sans-serif;">DANCE TRAINING</h1>
+
+            <div class="container">
+              <h1 class="text" style="color: red;font-family:sans-serif;">WHAT WE DO?</h1>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                </br>
+                  <p class="lead" style=" font-size: 20px;font-family:sans-serif;font-weight: 500;">
+                   <b> Western<br><br>
+                    Classic<br><br>
+                    Folk<br><br>
+                    Aerobics<br><br>
+                    B-boying<br><br>
+                    Poping & locking<br><br>
+                    Hiphop<br><br>
+                    Gymnastics<br><br></b>
+                  </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                </br>
+                  <p class="lead" style=" font-size: 20px;font-family:sans-serif;font-weight: 500;">
+                   <b> Contemporary<br><br>
+                    Cinematic<br><br>
+                    Salsa<br><br>
+                    Zumba<br><br>
+                    Arial<br><br>
+                    Jazz<br><br>
+                    Rope<br><br>
+                    Acting Classes<br><br></b>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <br><br><h1 style="color: red;font-family:sans-serif;">KIDS</h1>
+            <div class="d-flex flex-wrap align-items-stretch">
+              <div class="col-md-4">
+                <img  src="{% static 'images/kid.jpg' %}" class="img-fluid h-100" alt="Dance Image">
+              </div>
+              <div class="col-md-4">
+                <img  src="{% static 'images/kid1.jpg' %}" class="img-fluid h-100" alt="Dance Image">
+              </div>
+              <div class="col-md-4">
+                <img  src="{% static 'images/kid2.jpg' %}" class="img-fluid h-100" alt="Dance Image">
+              </div>
+            </div>
+            <br><br><h1 style="color: red;font-family:sans-serif;">ADULTS</h1>
+            <div class="d-flex flex-wrap align-items-stretch">
+              <div class="col-md-4">
+                <img  src="{% static 'images/adult1.jpg' %}" class="img-fluid h-100" alt="Dance Image">
+              </div>
+              <div class="col-md-4">
+                <img  src="{% static 'images/adult.jpg' %}" class="img-fluid h-100" alt="Dance Image">
+              </div>
+              <div class="col-md-4">
+                <img  src="{% static 'images/adult2.jpg' %}" class="img-fluid h-100" alt="Dance Image">
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+
+ 
+  <div class="row mt-5">
+    <div class="col-md-12 d-flex justify-content-center">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/AapwIsbidsY?si=gtupgbibSm96ObmI" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<section class="bg-light text-center py-5">
+  <div class="container">
+    <h2 class="text-danger mb-4">TESTIMONIALS</h2>
+    <div class="row">
+ 
+      <div class="col-lg-4">
+        <div class="testimonial">
+          <blockquote class="blockquote">
+            <footer class="blockquote-footer mt-3">
+              <span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 
+              4 years ago
+            </footer>
+            <p class="mb-0">"The floor will be a comfortable place for rehearsal.. So many people can practice at a time.. They maintain the class well.. Ppl who want to show up their talent in the film industry can join.. It will be an easy gateway for ppl who wish to step up in the film industry"</p>
+          </blockquote>
+          <h6><b>- Preethi M</b></h6>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="testimonial">
+          <blockquote class="blockquote">
+            <footer class="blockquote-footer mt-3">
+              <span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 
+              6 months ago
+            </footer>
+            <p class="mb-0">"Awesome place to get started. The mentor and instructors render great support and concern for their students apart from their expertise training. Ideal for kids and girls"</p>
+          </blockquote>
+          <h6><b>- Priyadharshini N</b></h6>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="testimonial">
+          <blockquote class="blockquote">
+            <footer class="blockquote-footer mt-3">
+              <span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 
+              5 months ago
+            </footer>
+            <p class="mb-0">"Good for children too..."</p>
+          </blockquote>
+          <h6><b>- Kathiraesan G</b></h6>
+        </div>
+      </div>
+      <div class="col-lg-8 mx-auto">
+        <h2 class="text-danger mb-4"></h2>
+        
+        <p> <a href="https://www.google.com/search?hl=en-IN&gl=in&q=chals+dance+studio,+4,+Sector+1,+K.+K.+Nagar,+Chennai,+Tamil+Nadu+600078&ludocid=10762190691483941656&lsig=AB86z5ULHVHKZ9RNpe5_wF1ozy6J" target="_blank" rel="noopener"><b>READ MORE</b></a></p>
+        <p> <a href="https://www.google.com/search?hl=en-IN&gl=in&q=chals+dance+studio,+4,+Sector+1,+K.+K.+Nagar,+Chennai,+Tamil+Nadu+600078&ludocid=10762190691483941656&lsig=AB86z5ULHVHKZ9RNpe5_wF1ozy6J#lrd=0x3a5266ded6a70fbf:0x955afb69d2ea7b18,3" target="_blank" rel="noopener"><b>WRITE A REVIEW</b></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<a href="https://api.whatsapp.com/send?phone=9443444675" target="_blank" class="whatsapp-icon">
+  <i class="fab fa-whatsapp"><img src="{% static 'images/wp1.png' %}" style="width:60px;"></i>
+</a>
+
+
+
+
+
+
+<footer class="bg-dark text-light text-center mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h3 style="color: red; "><strong>CDS</strong></h3>
+          <ul class="list-unstyled">
+            <li ><a href="{% url 'sp' %}" class="text-light"><b>Home</b></a></li>
+            <li><a href="{% url 'aboutus' %}" class="text-light"><b>About Us</b></a></li>
+            <li><a href="{% url 'profile' %}" class="text-light"><b>Profile</b></a></li>
+            <li><a href="{% url 'gallery' %}" class="text-light"><b>Gallery</b></a></li>
+            <li><a href="{% url 'admission' %}" class="text-light"><b>Admission</b></a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3><strong style="color: red;font-family:sans-serif; ">ADDRESS</strong></h3>
+          <p class="text-light">
+            <b style="font-family:sans-serif;">5, PT Rajan Road<br>
+            Sector 1, KK Nagar<br>
+            Chennai, 600078<br>
+            Tamil Nadu, India<br>
+          Contact No: 9042290922</b>
+          </p>
+        </div>
+        <div class="col">
+          <h3><strong style="color: red;">Follow Us</strong></h3>
+          <ul class="list-unstyled list-inline">
+            <li class="list-inline-item">
+              <a href="https://www.facebook.com/chalsdancestudio?mibextid=2JQ9oc" target="_blank">
+                <i class="fab fa-facebook-square fa-2x"><img src="{% static 'images/fbk.png' %}"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://instagram.com/chalsdancestudio?igshid=MzRlODBiNWFlZA==" target="_blank">
+                <i class="fab fa-instagram-square fa-2x"><img src="{% static 'images/insta.png' %}"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://youtube.com/@CHALSSTUDIO?si=a8MXTO2raAQk9qaO" target="_blank">
+                <i class="fab fa-youtube-square fa-2x"><img src="{% static 'images/yb.png' %}"></i>
+              </a>
+            </li>
+          
+          </ul>
+        
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

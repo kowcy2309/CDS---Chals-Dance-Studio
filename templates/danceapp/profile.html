@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chals Dance Studio</title>
+    {% load static %}
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/Fevicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/Fevicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/Fevicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/Fevicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/Fevicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#000000">
+
+
+    <link href="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %}" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/k.css' %}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+  <a href="https://api.whatsapp.com/send?phone=9443444675" target="_blank" class="whatsapp-icon">
+    <i class="fab fa-whatsapp"><img src="{% static 'images/wp1.png' %}" style="width:60px;"></i>
+  </a>
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="" ><img src="{% static 'images\logo.png' %}"></a>
+          <button class="navbar-toggler" type="button" style="background-color: white;" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="{% url 'sp' %}"><b style="color:red;font-size: large; ">Home</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'aboutus' %}"><b style="color:red;font-size: large; ">About Us</b></a>
+              </li>
+              <li class="nav-item" >
+                <a class="nav-link" href="{% url 'profile' %}"><b style="color:rgb(255, 255, 255);font-size: large; ">Profile</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'admission' %}"><b style="color:red;font-size: large; ">Admission</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'gallery' %}"><b style="color:red;font-size: large; ">Gallery</b></a>
+              </li>
+              <li class="nav-item">
+                {% if user.is_authenticated and user_has_access_admin %}
+                   <a class="nav-link" href="{% url 'admin1' %}"><img src="{% static 'images/am.png' %}"></a>
+                {% endif %}
+              </li>
+              
+
+             
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" >
+          <div class="carousel-item active" data-bs-interval="5000">
+            <img src="{% static 'images/mbg4.jpg' %}" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'images/mbg12.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'images/mbg10.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+  
+    
+      <div class="container">
+          <div class="row">
+              <div class="col">
+                
+                  <h1 class=" text-center" style="color: red; font-size: 35px;">CHARLES</h1>
+                  <p class="text-center" style="font-size: 18px;"><strong>Artistic director, Sr. Charles</strong>, is a highly talented dancer with extensive experience in a variety of dance forms, including Bollywood, Western, Classical, Folk, and Hip-Hop. He founded CDS - CHALS School of Dance in October 2001.</p>
+                  <p class="text-center" style="font-size: 18px;">The studio has been successfully running since October 2001 and has grown to become a major dance studio in Chennai, India. Students from diverse backgrounds enroll in CDS to learn dance in its traditional form. CDS's approach of imparting a variety of dances in their pure and traditional form is highly popular and welcomed by all our patrons.</p>
+              </div>
+          </div>
+  
+          
+          <div class="row div4">
+              <div class="col">
+                  <p class="text-center">
+                      <img src="{% static 'images/profc1.jpg' %}" class="img-fluid" alt="Image 1">
+                  </p>
+              </div>
+          </div>
+  
+          
+          <div class="row div5">
+              <div class="col text-center">
+                  <h1 style="color: red; font-size: 35px;">CHOREOGRAPHS</h1>
+                  <div class="row">
+                      <div class="col-md-4">
+                          <img src="{% static 'images/gal4.jpg' %}" class="img-fluid" alt="Image 2">
+                      </div>
+                      <div class="col-md-4">
+                          <img src="{% static 'images/gal5.jpg' %}" class="img-fluid" alt="Image 3">
+                      </div>
+                      <div class="col-md-4">
+                          <img src="{% static 'images/prof5.jpg' %}" class="img-fluid" alt="Image 4">
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-4">
+                          <img src="{% static 'images/prof13.jpg' %}" class="img-fluid" alt="Image 5">
+                      </div>
+                      <div class="col-md-4">
+                          <img src="{% static 'images/prof15.jpg' %}" class="img-fluid" alt="Image 6">
+                      </div>
+                      <div class="col-md-4">
+                          <img src="{% static 'images/gal6.jpg' %}" class="img-fluid" alt="Image 7"><br><br>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      
+  
+      <footer class="bg-dark text-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 style="color: red;"><strong>CDS</strong></h3>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'sp' %}" class="text-light"><b>Home</b></a></li>
+                        <li><a href="{% url 'aboutus' %}" class="text-light"><b>About Us</b></a></li>
+                        <li><a href="{% url 'profile' %}" class="text-light"><b>Profile</b></a></li>
+                        <li><a href="{% url 'gallery' %}" class="text-light"><b>Gallery</b></a></li>
+                        <li><a href="{% url 'admission' %}" class="text-light"><b>Admission</b></a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3 style="color: red; "><strong>ADDRESS</strong></h3>
+                    <p class="text-light">
+                      <b>5, PT Rajan Road<br>
+                      Sector 1, KK Nagar<br>
+                      Chennai, 600078<br>
+                      Tamil Nadu, India<br>
+                    Contact No: 9042290922</b>
+                    </p>                </div>
+                <div class="col">
+                    <h3 style="color: red; "><strong>Follow Us</strong></h3>
+                    <ul class="list-unstyled list-inline">
+                      <li class="list-inline-item">
+                        <a href="https://www.facebook.com/chalsdancestudio?mibextid=2JQ9oc" target="_blank">
+                          <i class="fab fa-facebook-square fa-2x"><img src="{% static 'images/fbk.png' %}"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="https://instagram.com/chalsdancestudio?igshid=MzRlODBiNWFlZA==" target="_blank">
+                          <i class="fab fa-instagram-square fa-2x"><img src="{% static 'images/insta.png' %}"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="https://youtube.com/@CHALSSTUDIO?si=a8MXTO2raAQk9qaO" target="_blank">
+                          <i class="fab fa-youtube-square fa-2x"><img src="{% static 'images/yb.png' %}"></i>
+                        </a>
+                      </li>
+                    
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+  
+      
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+
+</body>
+</html>

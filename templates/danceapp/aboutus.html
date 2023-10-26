@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chals Dance Studio</title>
+    {% load static %}
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/Fevicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/Fevicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/Fevicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/Fevicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/Fevicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#000000">
+
+
+
+    <link href="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/k.css' %}"  rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+  <a href="https://api.whatsapp.com/send?phone=9443444675" target="_blank" class="whatsapp-icon">
+    <i class="fab fa-whatsapp"><img src="{% static 'images/wp1.png' %}" style="width:60px;"></i>
+  </a>
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="" ><img src="{% static 'images\logo.png' %}"></a>
+          <button class="navbar-toggler" type="button" style="background-color: white;" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link "  href="{% url 'sp' %}"><b style="color:red;font-size: large; ">Home</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'aboutus' %}"><b style="color:rgb(255, 255, 255);font-size: large; ">About Us</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}"><b style="color:red;font-size: large; ">Profile</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'admission' %}"><b style="color:red;font-size: large; ">Admission</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'gallery' %}"><b style="color:red;font-size: large; ">Gallery</b></a>
+              </li>
+            
+              <li class="nav-item">
+                {% if user.is_authenticated and user_has_access_admin %}
+                   <a class="nav-link" href="{% url 'admin1' %}"><img src="{% static 'images/am.png' %}"></a>
+                {% endif %}
+              </li>
+          
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" >
+          <div class="carousel-item active" data-bs-interval="5000">
+            <img src="{% static 'images/mbg4.jpg' %}" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'images/mbg12.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'images/mbg10.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      
+      
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col-md-6 mx-auto text-center">
+              <h1 style="color: red;">ABOUT US</h1>
+              <p style="font-size: large;"><strong>Chals Dance</strong> was founded in 2001 and has been steadily growing ever since. Our studio is involved in various dance-related activities, including choreography for college, corporate events, schools, and media competitions. Some of our notable events include Kerala Mathraboomi Film Fare Award, Vijay Tele Awards, Sun TV Masthana Masthana Dance Reality, Z Telugu Magatheera Dance Reality, ETV Dhee Dance Reality Show, MAA TV Garshana Dance Reality Show, and many more.</p>
+              <p style="font-size: large;">The founder, a well-trained choreographer and dancer proficient in various dance forms, has been in the field for over 15 years, choreographing and performing in over 1000 shows. They were also part of the MARGA Dance Company, an international dance company that performed overseas. Additionally, the founder of Pandavas Dance Academy has choreographed and judged numerous dance and fashion shows for corporate companies and the media.</p>
+            </div>
+            <div class="col-md-6 mx-auto text-center"> 
+              <img src="{% static 'images/prof20.jpg' %}" class="img-fluid" alt="Image 2">
+            </div>
+          </div>
+        
+         
+        <div class="row mt-5">
+            <div class="col-md-6 mx-auto"> 
+              <div class="d-flex flex-wrap">
+                <div class="col-md-6">
+                  <img src="{% static 'images/col1.jpg' %}" class="img-fluid" alt="Image 2">
+                  <h3><b style="font-size: 22px;color: red;">Our Thoughtful</b></h3>
+                  <p>At Chals Dance Studio, we believe in celebrating our students' progress in a unique way. Unlike the typical 'Annual Day' concept that rushes students onto the stage every year, we take a more thoughtful approach.</p>
+                  <br> <h3><b style="font-size: 22px; color: red;">Emphasis</b></h3>
+                  <p>CDS emphasizes achieving excellence leading to perfection in each student's performance and execution of this beautiful dance form.</p>
+                </div>
+                <div class="col-md-6">
+                  <img src="{% static 'images/col2.jpg' %}" class="img-fluid" alt="Image 2">
+                  <h3><b style="font-size: 22px;color: red;">Proficient Leadership</b></h3>
+                  <p>Chals Dance Studio is guided by a team of seasoned professionals who bring a wealth of experience to every facet of our organization. We are dedicated to maintaining a standard of excellence, ensuring expert leadership and management at every turn.</p>
+                  <h3><b style="font-size: 22px;color: red;">Trained & Qualified Staff Members</b></h3>
+                  <p>CDS's motivated staff members are qualified with good teaching experience.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      
+      <footer class="bg-black text-light text-center mt-5">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h3 style="color: red; "><strong>CDS</strong></h3>
+              <ul class="list-unstyled">
+                <li><a href="{% url 'sp' %}" class="text-light"><b>Home</b></a></li>
+                <li><a href="{% url 'aboutus' %}" class="text-light"><b>About Us</b></a></li>
+                <li><a href="{% url 'profile' %}" class="text-light"><b>Profile</b></a></li>
+                <li><a href="{% url 'gallery' %}" class="text-light"><b>Gallery</b></a></li>
+                <li><a href="{% url 'admission' %}" class="text-light"><b>Admission</b></a></li>
+              </ul>
+            </div>
+            <div class="col">
+              <h3 style="color: red; "><strong>ADDRESS</strong></h3>
+              <p class="text-light">
+                <b>5, PT Rajan Road<br>
+                Sector 1, KK Nagar<br>
+                Chennai, 600078<br>
+                Tamil Nadu, India<br>
+              Contact No: 9042290922</b>
+              </p>
+            </div>
+            <div class="col">
+              <h3 style="color: red; "><strong>Follow Us</strong></h3>
+              <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <a href="https://www.facebook.com/chalsdancestudio?mibextid=2JQ9oc" target="_blank">
+                    <i class="fab fa-facebook-square fa-2x"><img src="{% static 'images/fbk.png' %}"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://instagram.com/chalsdancestudio?igshid=MzRlODBiNWFlZA==" target="_blank">
+                    <i class="fab fa-instagram-square fa-2x"><img src="{% static 'images/insta.png' %}"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://youtube.com/@CHALSSTUDIO?si=a8MXTO2raAQk9qaO" target="_blank">
+                    <i class="fab fa-youtube-square fa-2x"><img src="{% static 'images/yb.png' %}"></i>
+                  </a>
+                </li>
+              
+              </ul>
+              
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+      
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </body>
+    </html>
